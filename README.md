@@ -1,6 +1,6 @@
 # 📦 Inventory Management App
 
-A modern web-based application to manage your shop/company inventory efficiently.
+A web-based application to manage your shop/company inventory efficiently.
 
 ---
 
