@@ -31,7 +31,13 @@ const SearchInventory = ({ defaultValue }: { defaultValue: string }) => {
         onClick={handleSearch}
         className="h-10 w-25 rounded-md bg-purple-700 text-white font-semibold hover:opacity-75 active:bg-purple-900 hover:cursor-pointer"
       >
-        <span>Search</span>
+        {isPending ? (
+          <div className="flex items-center justify-center">
+            <div className="border-4 border-gray-300 border-b-white rounded-full h-5 w-5 animate-spin" />
+          </div>
+        ) : (
+          <span>Search</span>
+        )}
       </button>
     </div>
   );

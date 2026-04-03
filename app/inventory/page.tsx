@@ -6,24 +6,46 @@ import getProducts from "@/lib/productsFetch";
 import ProductsTable from "@/components/ProductsTable/ProductsTable";
 import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import { syncUser } from "@/lib/syncUser";
 
 const inventory = async ({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: number; search?: string }>;
+  searchParams: Promise<{
+    page?: number;
+    search?: string;
+    sortBy?: string;
+    sortOrder?: "asc" | "desc";
+  }>;
 }) => {
-  const { page: pageParam, search } = await searchParams;
+  const user = await syncUser();
+  const userId = user.id;
+
+  const { page: pageParam, search, sortBy, sortOrder } = await searchParams;
   const page = Number(pageParam) || 1;
   const searchedWord = search ?? "";
-  const { products, total, totalPages } = await getProducts({
+  const {
+    products: rawProducts,
+    total,
+    totalPages,
+  } = await getProducts({
     search: searchedWord,
     page,
+    sortBy: sortBy ?? "",
+    sortOrder: sortOrder ?? "",
   });
+
+  const products = rawProducts.map((p) => ({
+    ...p,
+    price: p.price.toString(),
+    createdAt: p.createdAt.toISOString(),
+    updatedAt: p.updatedAt.toISOString(),
+  }));
 
   const deleteProduct = async (id: string) => {
     "use server";
     await prisma.product.delete({
-      where: { id },
+      where: { userId, id },
     });
     revalidatePath("/inventory");
   };
@@ -31,7 +53,7 @@ const inventory = async ({
   return (
     <div className="min-h-dvh bg-gray-100">
       <Sidebar currentPath="/inventory" />
-      <main className="ml-64 p-8 min-h-dvh flex flex-col">
+      <main className="md:ml-64 md:mt-0 mt-12 md:p-8 p-1 min-h-dvh flex flex-col">
         {/* {Header} */}
         <div className="flex items-center justify-between mb-8">
           <div>

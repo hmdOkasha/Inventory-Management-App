@@ -7,15 +7,13 @@ const prisma = new PrismaClient({ adapter });
 
 async function main() {
   await prisma.product.createMany({
-    data: Array.from({ length: 25 }).map((_, i) => ({
-      userId: "12345",
-      name: `Product ${i + 25 + 1}`,
+    data: Array.from({ length: 50 }).map((_, i) => ({
+      userId: "9db86c3c-f08c-4289-9bd7-9a4a75bc37f1",
+      name: `Product ${i + 50 + 1}`,
       price: (Math.random() * 90 + 10).toFixed(2),
       quantity: Math.floor(Math.random() * 20),
       lowStockAt: 5,
-      createdAt: new Date(
-        Date.now() - 1000 * 60 * 60 * 24 * (i * Math.random() * 4),
-      ),
+      createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * (i * 40)),
     })),
   });
   console.log("Seed created successfully!");
