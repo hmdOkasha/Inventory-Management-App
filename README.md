@@ -1,23 +1,74 @@
-# Inventory Management App
+# 📦 Inventory Management App
 
-A web-based application that allows you to manage the products inventory of your company/shop
+A modern web-based application to manage your shop/company inventory efficiently.
 
-## Features
+---
 
-1. Dashboard that gives you stats about your products, prices and which products are at low stock
-2. Inventory table that contains all the products in your inventory with their prices, quantity and all other relevant information
-3. Ability to search for the product by name and sort the product according to name, price, quantity and low stock
-4. Add new products or delete existing ones
+## 🚀 Features
 
-## Technologies Used
+- 📊 **Dashboard**
+  - View insights about products, pricing, and low-stock alerts
 
-1. NextJS
-2. Typescript
-3. Tailwind CSS
-4. Stack-Auth
-5. Neon Postgres Database
+- 📋 **Inventory Table**
+  - See all products with details like price, quantity, and more
 
-## Demo
+- 🔍 **Search & Sort**
+  - Search products by name
+  - Sort by:
+    - Name
+    - Price
+    - Quantity
+    - Low stock
 
-https://github.com/user-attachments/assets/f75d8418-25df-4623-a809-2424fd5bdab0
+- ➕➖ **Manage Products**
+  - Add new products
+  - Delete existing ones
 
+---
+
+## 🛠️ Tech Stack
+
+- ⚡ **Next.js**
+- 🟦 **TypeScript**
+- 🎨 **Tailwind CSS**
+- 🔐 **Stack Auth**
+- 🐘 **Neon PostgreSQL**
+
+---
+
+## 🎥 Demo
+
+👉 [Watch Demo](https://github.com/user-attachments/assets/f75d8418-25df-4623-a809-2424fd5bdab0)
+
+---
+
+## 💡 Future Improvements
+
+- ✏️ Edit existing products
+- 📦 Product categories
+- 📉 Sales analytics
+- 🌙 Dark mode
+- 📱 Mobile responsiveness improvements
+
+---
+
+## 📸 Screenshots (optional but recommended)
+
+_Add screenshots here to make your repo more attractive_
+
+---
+
+## ⚙️ Installation
+
+```bash
+# Clone the repo
+git clone https://github.com/your-username/your-repo.git
+
+# Navigate into the project
+cd your-repo
+
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
